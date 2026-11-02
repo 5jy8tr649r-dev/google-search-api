@@ -9,7 +9,9 @@ from urllib.parse import urlparse, parse_qs, unquote
 app = FastAPI(
     title="Google Search Scraper API",
     description="A simple Google search results scraper",
-    version="1.0.0"
+    version="1.0.0",
+    docs_url="/docs",
+    redoc_url="/redoc"
 )
 
 USER_AGENTS = [
