@@ -90,13 +90,13 @@ def search(
             status_code=502,
             detail="Could not connect to Google Search."
         )
-
-    soup = BeautifulSoup(response.text, "html.parser")
+soup = BeautifulSoup(response.text, "html.parser")
 print("GOOGLE STATUS:", response.status_code)
 print("GOOGLE PAGE TITLE:", soup.title.get_text() if soup.title else "NO TITLE")
 print("GOOGLE HTML LENGTH:", len(response.text))
 print("GOOGLE CAPTCHA:", "captcha" in response.text.lower())
     page_text = soup.get_text(" ", strip=True).lower()
+    
 
     if "unusual traffic" in page_text or "captcha" in page_text:
         raise HTTPException(
